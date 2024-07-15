@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 
 def total_salary(path):
     try:
@@ -28,7 +28,8 @@ def total_salary(path):
     except Exception as e:
         print(f"Unhandled error while reading data from file: {e}")
         return 0, 0
-
-path_to_file = os.getcwd() + '\ex01\salaries.txt'
+    
+script_dir = Path(__file__).parent.resolve()
+path_to_file = script_dir / 'salaries.txt'
 total, average = total_salary(path_to_file)
 print(f"Total salary: {total}, Average salary: {average}")
